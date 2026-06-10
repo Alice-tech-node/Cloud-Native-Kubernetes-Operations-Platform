@@ -18,18 +18,31 @@ This project is a production-style Kubernetes operations platform that demonstra
 It is built using Kubernetes with pre-built container images.
 
 *. 🧠 Architecture Overview*
+
 *. ☁️ Cloud Architecture*
+
 *. 🏗️ Tech Stack*
+
 *. ☸️ Kubernetes (Minikube / Cluster)*
+
 *. 📦 Helm*
+
 *. 📊 Prometheus*
+
 *. 📈 Grafana*
+
 *. 📜 Loki*
+
 *. 🚀 Argo CD*
+
 *. 🐘 PostgreSQL*
+
 *. ⚡ Redis*
+
 *. 🌐 NGINX Ingress*
+
 *. 📦 Components*
+
 *. 🖥️ Application Layer*
 
 
