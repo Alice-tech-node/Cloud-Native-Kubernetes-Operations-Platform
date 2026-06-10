@@ -19,17 +19,17 @@ It is built using Kubernetes with pre-built container images.
 
 *. 🧠 Architecture Overview* _ *. ☁️ Cloud Architecture*
 
-*. 🏗️ Tech Stack*    _        *. ☸️ Kubernetes (Minikube / Cluster)*
+*. 🏗️ Tech Stack*     _        *. ☸️ Kubernetes (Minikube / Cluster)*
 
-*. 📦 Helm*                  *. 📊 Prometheus*
+*. 📦 Helm*           _        *. 📊 Prometheus*
 
-*. 📈 Grafana*               *. 📜 Loki*
+*. 📈 Grafana*        _        *. 📜 Loki*
 
-*. 🚀 Argo CD*               *. 🐘 PostgreSQL*
+*. 🚀 Argo CD*        _         *. 🐘 PostgreSQL*
 
-*. ⚡ Redis*                 *. 🌐 NGINX Ingress*
+*. ⚡ Redis*          _         *. 🌐 NGINX Ingress*
 
-*. 📦 Components*            *. 🖥️ Application Layer*
+*. 📦 Components*     _        *. 🖥️ Application Layer*
 
 
 NGINX frontend
