@@ -98,47 +98,51 @@ Start cluster:
 *minikube start*
 
 
-2. Install Ingress Controller
+**2. Install Ingress Controller**
+
 *. minikube addons enable ingress*
 
-4. Deploy Monitoring Stack
+**3. Deploy Monitoring Stack**
+
 *. helm repo add prometheus-community https://prometheus-community.github.io/helm-charts*
 
 *. helm install monitoring prometheus-community/kube-prometheus-stack*
 
-6. Deploy Logging Stack
+**4. Deploy Logging Stack**
+
 *. helm repo add grafana https://grafana.github.io/helm-charts*
 
 *. helm install loki grafana/loki-stack*
 
-8. Deploy Applications
+**5. Deploy Applications**
+
 *. kubectl create deployment nginx --image=nginx*
 
  *. kubectl expose deployment nginx --port=80*
 
-10. Install Argo CD
-. kubectl create namespace argocd
+**6. Install Argo CD**
 
-kubectl apply -n argocd \
--f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-📊 Access Dashboards
-Grafana
-kubectl port-forward svc/monitoring-grafana 3000:80
+*. kubectl create namespace argocd*
 
-👉 http://localhost:3000
-Username: admin
+*. kubectl apply -n argocd \-f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml*
 
-Argo CD
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+**Access Dashboards**
 
-👉 https://localhost:8080
+**Grafana**
 
-🔐 Security Features
-Namespace isolation
-RBAC policies
-Secrets management
-Network traffic restrictions
-📡 Key Features
+*kubectl port-forward svc/monitoring-grafana 3000:80*
+
+**Argo CD**
+*kubectl port-forward svc/argocd-server -n argocd 8080:443*
+
+**Security Features**
+
+. Namespace isolation
+. RBAC policies
+. Secrets management
+. Network traffic restrictions
+
+**Key Features**
 
 ✔ Multi-tier microservices architecture
 ✔ Full observability stack (metrics + logs)
