@@ -50,7 +50,7 @@ It is built using Kubernetes with pre-built container images.
 
 **Metrics include:**
 
-CPU usage
+**CPU usage**
 
 *. Memory usage*
 
@@ -59,12 +59,12 @@ CPU usage
 *. Node performance*
 
 
-**📜 Logging**
+**Logging**
 *. Loki aggregates logs*
 
 *. Centralized log querying via Grafana*
 
-**🚀 GitOps**
+**GitOps**
 *. Argo CD manages deployments*
 
 *. GitHub is the single source of truth*
