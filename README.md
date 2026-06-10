@@ -4,33 +4,35 @@
 
 This project is a production-style Kubernetes operations platform that demonstrates real-world DevOps practices including:
 
-. Monitoring and observability
+*. Monitoring and observability*
 
-. Centralized logging
+*. Centralized logging*
 
-. GitOps-based deployments
+*. GitOps-based deployments*
 
-. Kubernetes security controls
+*. Kubernetes security controls*
 
-. Multi-tier application deployment
+*. Multi-tier application deployment*
 
 
-It is built using Kubernetes with pre-built container images (no custom Docker builds required).
+It is built using Kubernetes with pre-built container images.
 
-🧠 Architecture Overview
-☁️ Cloud Architecture
-🏗️ Tech Stack
-☸️ Kubernetes (Minikube / Cluster)
-📦 Helm
-📊 Prometheus
-📈 Grafana
-📜 Loki
-🚀 Argo CD
-🐘 PostgreSQL
-⚡ Redis
-🌐 NGINX Ingress
-📦 Components
-🖥️ Application Layer
+*. 🧠 Architecture Overview*
+*. ☁️ Cloud Architecture*
+*. 🏗️ Tech Stack*
+*. ☸️ Kubernetes (Minikube / Cluster)*
+*. 📦 Helm*
+*. 📊 Prometheus*
+*. 📈 Grafana*
+*. 📜 Loki*
+*. 🚀 Argo CD*
+*. 🐘 PostgreSQL*
+*. ⚡ Redis*
+*. 🌐 NGINX Ingress*
+*. 📦 Components*
+*. 🖥️ Application Layer*
+
+
 NGINX frontend
 Backend API services
 PostgreSQL database (StatefulSet)
