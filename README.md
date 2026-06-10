@@ -5,10 +5,15 @@
 This project is a production-style Kubernetes operations platform that demonstrates real-world DevOps practices including:
 
 . Monitoring and observability
+
 . Centralized logging
+
 . GitOps-based deployments
+
 . Kubernetes security controls
+
 . Multi-tier application deployment
+
 
 It is built using Kubernetes with pre-built container images (no custom Docker builds required).
 
