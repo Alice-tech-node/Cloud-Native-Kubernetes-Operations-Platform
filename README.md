@@ -73,13 +73,13 @@ It is built using Kubernetes with pre-built container images.
 
 *. Automatic sync between Git and cluster*
 
-**🔐 Security**
+**Security**
 
-RBAC (Role-Based Access Control)
+*RBAC (Role-Based Access Control)*
 
-Kubernetes Secrets for sensitive data
+*Kubernetes Secrets for sensitive data*
 
-Network Policies for traffic control
+*Network Policies for traffic control*
 
 **⚙️ Installation & Setup**
 
@@ -87,31 +87,29 @@ Network Policies for traffic control
 
 Install:
 
-Minikube
-kubectl
-Helm
-
+*Minikube*
+*kubectl*
+*Helm*
 Start cluster:
-
-minikube start
+*minikube start
 
 2. Install Ingress Controller
-. minikube addons enable ingress
+*. minikube addons enable ingress*
 
 4. Deploy Monitoring Stack
-. helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+*. helm repo add prometheus-community https://prometheus-community.github.io/helm-charts*
 
-. helm install monitoring prometheus-community/kube-prometheus-stack
+*. helm install monitoring prometheus-community/kube-prometheus-stack*
 
 6. Deploy Logging Stack
-. helm repo add grafana https://grafana.github.io/helm-charts
+*. helm repo add grafana https://grafana.github.io/helm-charts*
 
-. helm install loki grafana/loki-stack
+*. helm install loki grafana/loki-stack*
 
 8. Deploy Applications
-. kubectl create deployment nginx --image=nginx
+*. kubectl create deployment nginx --image=nginx*
 
- . kubectl expose deployment nginx --port=80
+ *. kubectl expose deployment nginx --port=80*
 
 10. Install Argo CD
 . kubectl create namespace argocd
