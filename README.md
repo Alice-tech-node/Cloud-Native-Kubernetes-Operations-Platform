@@ -48,15 +48,21 @@ It is built using Kubernetes with pre-built container images.
 . Grafana visualizes dashboards
 
 
-Metrics include:
+**Metrics include:**
 
 CPU usage
-Memory usage
-Pod health
-Node performance
+
+. Memory usage
+
+. Pod health
+
+. Node performance
+
+
 📜 Logging
 Loki aggregates logs
 Centralized log querying via Grafana
+
 🚀 GitOps
 Argo CD manages deployments
 GitHub is the single source of truth
