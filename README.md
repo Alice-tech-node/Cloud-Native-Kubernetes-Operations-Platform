@@ -139,8 +139,11 @@ Start cluster:
 **Security Features**
 
 . Namespace isolation
+
 . RBAC policies
+
 . Secrets management
+
 . Network traffic restrictions
 
 **Key Features**
@@ -154,6 +157,7 @@ Start cluster:
 ✔ Secure Kubernetes configuration
 
 ✔ Scalable workloads
+
 
 **Learning Outcomes**
 
@@ -177,7 +181,7 @@ Name: Alice Oripu
 
 Focus: Cloud & DevOps Engineering
 
-GitHub: https://https://github.com/Alice-tech-node
+GitHub: https://github.com/Alice-tech-node
 
 **⭐ Project Status**
 
