@@ -1,6 +1,6 @@
 ## **Kubernetes Operations Platform**
 
-**🚀 Overview**
+## **🚀 Overview**
 
 This project is a production-style Kubernetes operations platform that demonstrates real-world DevOps practices including:
 
@@ -81,7 +81,8 @@ It is built using Kubernetes with pre-built container images.
 
 *Network Policies for traffic control*
 
-**⚙️ Installation & Setup**
+
+## **⚙️ Installation & Setup**
 
 **1. Prerequisites**
 
@@ -175,7 +176,8 @@ After completing this project, you will understand:
 
 . Real-world DevOps operations
 
-**🧑‍💻 Author**
+
+## **🧑‍💻 Author**
 
 Name: Alice Oripu
 
