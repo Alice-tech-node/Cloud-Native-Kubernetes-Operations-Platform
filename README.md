@@ -88,10 +88,15 @@ It is built using Kubernetes with pre-built container images.
 Install:
 
 *Minikube*
+
 *kubectl*
+
 *Helm*
+
 Start cluster:
-*minikube start
+
+*minikube start*
+
 
 2. Install Ingress Controller
 *. minikube addons enable ingress*
