@@ -32,13 +32,16 @@ It is built using Kubernetes with pre-built container images.
 *. 📦 Components*     _        *. 🖥️ Application Layer*
 
 
-NGINX frontend
-Backend API services
-PostgreSQL database (StatefulSet)
-Redis cache
-📊 Monitoring
-Prometheus collects metrics
-Grafana visualizes dashboards
+**NGINX frontend**
+
+. Backend API services
+. PostgreSQL database (StatefulSet)
+. Redis cache
+
+**Monitoring**
+
+. Prometheus collects metrics
+. Grafana visualizes dashboards
 
 Metrics include:
 
