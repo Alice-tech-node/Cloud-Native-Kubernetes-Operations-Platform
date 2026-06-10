@@ -17,9 +17,9 @@ This project is a production-style Kubernetes operations platform that demonstra
 
 It is built using Kubernetes with pre-built container images.
 
-*. 🧠 Architecture Overview* *. ☁️ Cloud Architecture*
+*. 🧠 Architecture Overview* _ *. ☁️ Cloud Architecture*
 
-*. 🏗️ Tech Stack*            *. ☸️ Kubernetes (Minikube / Cluster)*
+*. 🏗️ Tech Stack*    _        *. ☸️ Kubernetes (Minikube / Cluster)*
 
 *. 📦 Helm*                  *. 📊 Prometheus*
 
