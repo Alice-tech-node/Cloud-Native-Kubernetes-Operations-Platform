@@ -60,11 +60,13 @@ It is built using Kubernetes with pre-built container images.
 
 
 **Logging**
+
 *. Loki aggregates logs*
 
 *. Centralized log querying via Grafana*
 
 **GitOps**
+
 *. Argo CD manages deployments*
 
 *. GitHub is the single source of truth*
