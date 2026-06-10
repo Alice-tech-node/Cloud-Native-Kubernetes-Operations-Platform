@@ -73,11 +73,16 @@ It is built using Kubernetes with pre-built container images.
 
 *. Automatic sync between Git and cluster*
 
-🔐 Security
+**🔐 Security**
+
 RBAC (Role-Based Access Control)
+
 Kubernetes Secrets for sensitive data
+
 Network Policies for traffic control
-⚙️ Installation & Setup
+
+**⚙️ Installation & Setup**
+
 1. Prerequisites
 
 Install:
