@@ -83,7 +83,7 @@ Network Policies for traffic control
 
 **⚙️ Installation & Setup**
 
-1. Prerequisites
+**1. Prerequisites**
 
 Install:
 
@@ -94,19 +94,27 @@ Helm
 Start cluster:
 
 minikube start
+
 2. Install Ingress Controller
-minikube addons enable ingress
-3. Deploy Monitoring Stack
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm install monitoring prometheus-community/kube-prometheus-stack
-4. Deploy Logging Stack
-helm repo add grafana https://grafana.github.io/helm-charts
-helm install loki grafana/loki-stack
-5. Deploy Applications
-kubectl create deployment nginx --image=nginx
-kubectl expose deployment nginx --port=80
-6. Install Argo CD
-kubectl create namespace argocd
+. minikube addons enable ingress
+
+4. Deploy Monitoring Stack
+. helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+. helm install monitoring prometheus-community/kube-prometheus-stack
+
+6. Deploy Logging Stack
+. helm repo add grafana https://grafana.github.io/helm-charts
+
+. helm install loki grafana/loki-stack
+
+8. Deploy Applications
+. kubectl create deployment nginx --image=nginx
+
+ . kubectl expose deployment nginx --port=80
+
+10. Install Argo CD
+. kubectl create namespace argocd
 
 kubectl apply -n argocd \
 -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
