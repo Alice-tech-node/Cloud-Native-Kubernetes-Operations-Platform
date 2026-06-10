@@ -133,6 +133,7 @@ Start cluster:
 *kubectl port-forward svc/monitoring-grafana 3000:80*
 
 **Argo CD**
+
 *kubectl port-forward svc/argocd-server -n argocd 8080:443*
 
 **Security Features**
@@ -145,10 +146,15 @@ Start cluster:
 **Key Features**
 
 ✔ Multi-tier microservices architecture
+
 ✔ Full observability stack (metrics + logs)
+
 ✔ GitOps automated deployments
+
 ✔ Secure Kubernetes configuration
+
 ✔ Scalable workloads
+
 
 📷 Screenshots (Add Here)
 Grafana dashboards
