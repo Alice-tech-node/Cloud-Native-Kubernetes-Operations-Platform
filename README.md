@@ -34,39 +34,43 @@ It is built using Kubernetes with pre-built container images.
 
 **NGINX frontend**
 
-. Backend API services
+*. Backend API services*
 
-. PostgreSQL database (StatefulSet)
+*. PostgreSQL database (StatefulSet)*
 
-. Redis cache
+*. Redis cache*
 
 
 **Monitoring**
 
-. Prometheus collects metrics
+*. Prometheus collects metrics*
 
-. Grafana visualizes dashboards
+*. Grafana visualizes dashboards*
 
 
 **Metrics include:**
 
 CPU usage
 
-. Memory usage
+*. Memory usage*
 
-. Pod health
+*. Pod health*
 
-. Node performance
+*. Node performance*
 
 
-📜 Logging
-Loki aggregates logs
-Centralized log querying via Grafana
+**📜 Logging**
+*. Loki aggregates logs*
 
-🚀 GitOps
-Argo CD manages deployments
-GitHub is the single source of truth
-Automatic sync between Git and cluster
+*. Centralized log querying via Grafana*
+
+**🚀 GitOps**
+*. Argo CD manages deployments*
+
+*. GitHub is the single source of truth*
+
+*. Automatic sync between Git and cluster*
+
 🔐 Security
 RBAC (Role-Based Access Control)
 Kubernetes Secrets for sensitive data
