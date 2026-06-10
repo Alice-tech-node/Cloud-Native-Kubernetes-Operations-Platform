@@ -155,26 +155,32 @@ Start cluster:
 
 ✔ Scalable workloads
 
-
-📷 Screenshots (Add Here)
-Grafana dashboards
-Argo CD UI
-Kubernetes pods
-Ingress routing
-📈 Learning Outcomes
+**Learning Outcomes**
 
 After completing this project, you will understand:
 
-Kubernetes architecture
-Production monitoring systems
-Logging and observability
-GitOps workflows
-Cloud-native security
-Real-world DevOps operations
-🧑‍💻 Author
-Name: Your Name
+. Kubernetes architecture
+
+. Production monitoring systems
+
+. Logging and observability
+
+. GitOps workflows
+
+. Cloud-native security
+
+. Real-world DevOps operations
+
+**🧑‍💻 Author**
+
+Name: Alice Oripu
+
 Focus: Cloud & DevOps Engineering
-GitHub: https://github.com/your-username
-⭐ Project Status
-Status: In Progress / Completed
+
+GitHub: https://https://github.com/Alice-tech-node
+
+**⭐ Project Status**
+
+Status: In Progress 
+
 Environment: Local (Minikube) / Cloud-ready
