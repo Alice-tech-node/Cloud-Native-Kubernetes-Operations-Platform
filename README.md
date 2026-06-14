@@ -83,6 +83,9 @@ It is built using Kubernetes with pre-built container images.
 
 
 ## **⚙️ Installation & Setup**
+**PHASE 1: CLUSTER STEP**
+
+Initialize and configure a Kubernetes cluster that serves as the foundation for the project, providing a reliable environment for deploying, managing, and scaling containerized applications and infrastructure services.
 
 **1. Prerequisites**
 
