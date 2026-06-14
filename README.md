@@ -87,7 +87,7 @@ It is built using Kubernetes with pre-built container images.
 
 Initialize and configure a Kubernetes cluster that serves as the foundation for the project, providing a reliable environment for deploying, managing, and scaling containerized applications and infrastructure services.
 
-**1. Prerequisites**
+**Prerequisites**
 
 Install:
 
@@ -101,36 +101,41 @@ Start cluster:
 
 *minikube start*
 
+## **PHASE 2: MULTI-TIER APPLICATION (Core Workload)**
 
-**2. Install Ingress Controller**
+Deploy a multi-tier application consisting of frontend, backend, and database components to demonstrate Kubernetes workload management, service communication, scaling, and application availability
+
+**Install Ingress Controller**
 
 *. minikube addons enable ingress*
 
-**3. Deploy Monitoring Stack**
+**Deploy Monitoring Stack**
 
 *. helm repo add prometheus-community https://prometheus-community.github.io/helm-charts*
 
 *. helm install monitoring prometheus-community/kube-prometheus-stack*
 
-**4. Deploy Logging Stack**
+**Deploy Logging Stack**
 
 *. helm repo add grafana https://grafana.github.io/helm-charts*
 
 *. helm install loki grafana/loki-stack*
 
-**5. Deploy Applications**
+**Deploy Applications**
 
 *. kubectl create deployment nginx --image=nginx*
 
  *. kubectl expose deployment nginx --port=80*
 
-**6. Install Argo CD**
+**Install Argo CD**
 
 *. kubectl create namespace argocd*
 
 *. kubectl apply -n argocd \-f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml*
+##
+**PHASE 3: MONITORING LATER**
 
-**Access Dashboards**
+Implement a monitoring solution to provide real-time visibility into cluster health, resource utilization, application performance, and system availability.
 
 **Grafana**
 
