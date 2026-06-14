@@ -83,7 +83,7 @@ It is built using Kubernetes with pre-built container images.
 
 
 ## **⚙️ Installation & Setup**
-**PHASE 1: CLUSTER STEP**
+## **PHASE 1: CLUSTER STEP**
 
 Initialize and configure a Kubernetes cluster that serves as the foundation for the project, providing a reliable environment for deploying, managing, and scaling containerized applications and infrastructure services.
 
@@ -132,8 +132,8 @@ Deploy a multi-tier application consisting of frontend, backend, and database co
 *. kubectl create namespace argocd*
 
 *. kubectl apply -n argocd \-f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml*
-##
-**PHASE 3: MONITORING LATER**
+
+## **PHASE 3: MONITORING LATER**
 
 Implement a monitoring solution to provide real-time visibility into cluster health, resource utilization, application performance, and system availability.
 
