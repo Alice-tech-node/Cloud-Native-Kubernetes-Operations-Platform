@@ -1,0 +1,54 @@
+flowchart TB
+
+%% USERS
+Users((Users / Admins)) --> Ingress
+
+%% INGRESS
+Ingress[NGINX Ingress Controller] --> App
+
+%% APPLICATION LAYER
+subgraph App["Application Layer (Workloads)"]
+    Frontend[NGINX Frontend Service]
+    Backend[Backend Services / APIs]
+    Postgres[(PostgreSQL Database)]
+    Redis[(Redis Cache)]
+end
+
+Frontend --> Backend
+Backend --> Postgres
+Backend --> Redis
+
+%% MONITORING
+subgraph Monitoring["Monitoring Stack"]
+    Prometheus[Prometheus]
+    Grafana[Grafana Dashboard]
+end
+
+Prometheus --> Grafana
+Prometheus --> App
+
+%% LOGGING
+subgraph Logging["Logging Stack"]
+    Loki[Loki Log Aggregator]
+end
+
+App --> Loki
+Ingress --> Loki
+
+%% GITOPS
+subgraph GitOps["GitOps Deployment"]
+    ArgoCD[Argo CD]
+    GitHub[(GitHub Repo)]
+end
+
+GitHub --> ArgoCD
+ArgoCD --> App
+
+%% SECURITY
+subgraph Security["Security Layer"]
+    RBAC[RBAC Policies]
+    Secrets[Kubernetes Secrets]
+    NetworkPolicies[Network Policies]
+end
+
+Security --> App
