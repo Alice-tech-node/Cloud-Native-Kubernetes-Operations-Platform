@@ -21,7 +21,7 @@
 
 ### **Project Overview**
 
-This project is a production-style Kubernetes operations platform that demonstrates real-world DevOps practices including:
+The Kubernetes Operations Platform is a comprehensive, production-style project designed to demonstrate the core technologies and practices used in modern cloud-native environments. The project combines application deployment, monitoring, centralized logging, security controls, and GitOps automation into a single Kubernetes-based platform.
 
 *. Monitoring and observability*
 
