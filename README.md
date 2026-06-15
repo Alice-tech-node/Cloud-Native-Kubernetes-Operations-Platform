@@ -106,8 +106,9 @@ It is built using Kubernetes with pre-built container images.
 *Network Policies for traffic control*
 
 
-# **⚙️ Installation & Setup**
-## **PHASE 1: CLUSTER STEP**
+# **Installation & Setup**
+
+## **Phase 1: Cluster Setup**
 This phase establishes the Kubernetes environment by deploying and configuring the cluster, installing the required tools, and enabling core services such as Ingress to provide a foundation for hosting and managing applications.
 
 **1. Install Tools**
@@ -126,7 +127,7 @@ Enable: *minikube addons enable ingress*
 
 Confirm: *kubectl get pods -n ingress-nginx*
 
-## **PHASE 2: MULTI-TIER APPLICATION DEPLOYMENT**
+## **Phase 2: Multi-Tier Application Deployment**
 
 This phase deploys the core application components, including the frontend, database, and cache layers, demonstrating how multiple services communicate and operate together within a Kubernetes cluster.
 
@@ -165,7 +166,7 @@ spec:
 
 Apply: kubectl apply -f ingress.yaml
 
-## **PHASE 3: MONITORING LAYER**
+## **Phase 3: Monitoring Layer**
 
 This phase introduces observability by deploying Prometheus and Grafana to collect, store, and visualize cluster and application metrics, enabling proactive monitoring of system health and performance.
 
@@ -192,7 +193,7 @@ You will monitor:
 *Node performance*
 *NGINX traffic*
 
-## **PHASE 4: LOGGING LAYER**
+## **Phase 4: Logging Layer**
 This phase implements centralized logging using Loki, allowing logs from applications and Kubernetes resources to be aggregated, searched, and analyzed from a single location for easier troubleshooting and auditing.
 
 **1. Install Loki Stack**
@@ -208,7 +209,7 @@ This phase implements centralized logging using Loki, allowing logs from applica
 
 Logs will appear in Grafana.
 
-## **PHASE 5: GitOps (ARGO CD)**
+## **Phase 5: GitOps Layer**
 This phase automates application deployment and configuration management using Argo CD, ensuring that the Kubernetes environment continuously synchronizes with the desired state defined in a Git repository
 
 **1. Install Argo CD**
@@ -236,7 +237,7 @@ This phase automates application deployment and configuration management using A
   ### ***Any change pushed to GitHub is automatically deployed.***
   
 
-## **PHASE 6: SECURITY LAYER**
+## **Phase 6: Security Layer**
 This phase strengthens the platform's security posture by implementing Role-Based Access Control (RBAC), Secrets management, and Network Policies to protect sensitive information and control access between users and workloads.
 
 **1. Create Namespace**
@@ -253,7 +254,7 @@ apiVersion: rbac.authorization.k8s.io/v1*
 **4. Network Policies**
 *Restrict traffic between services.*
 
-## **PHASE 7: FINAL VALIDATION AND INTERGRATION TESTING**
+## **Phase 7: Final Validation & Integration Testing**
 This phase verifies that all platform components are functioning together as intended by testing application availability, monitoring, logging, GitOps synchronization, and security controls to ensure a stable and production-ready environment.
 
 Run:
@@ -268,7 +269,7 @@ Confirm:
  - GitOps synced
  - Security enforced
 
-**Challenges and lesson leaned**
+**Challenges and lessons learned**
 ### Challenges
 - Configuring Ingress networking
 - Integrating Grafana with Loki
@@ -298,7 +299,7 @@ After completing this project, I understood:
 . Real-world DevOps operations
 
 
-## **🧑‍💻 Author**
+## **Author**
 
 Name: Alice Oripu
 
