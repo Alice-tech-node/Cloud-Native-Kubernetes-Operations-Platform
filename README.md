@@ -14,6 +14,10 @@ This project is a production-style Kubernetes operations platform that demonstra
 
 *. Multi-tier application deployment*
 
+## **Architecture**
+<img width="2692" height="2129" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/57c8d77d-c274-4562-a0ed-62ec1ebd4630" />
+
+
 
 It is built using Kubernetes with pre-built container images.
 
