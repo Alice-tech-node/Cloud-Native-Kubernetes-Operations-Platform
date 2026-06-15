@@ -269,20 +269,20 @@ Confirm:
  - GitOps synced
  - Security enforced
 
-**Challenges and lessons learned**
-### Challenges
+### **Challenges and lessons learned**
+**Challenges**
 - Configuring Ingress networking
 - Integrating Grafana with Loki
 - Setting up Argo CD synchronization
 - Managing Kubernetes RBAC permissions
 
-### Lessons Learned
+**Lessons Learned**
 - Kubernetes resource management
 - Monitoring and observability best practices
 - GitOps deployment workflows
 - Kubernetes security fundamentals
 
-**Learning Outcomes**
+#### **Learning Outcomes**
 
 After completing this project, I understood:
 
@@ -299,7 +299,7 @@ After completing this project, I understood:
 . Real-world DevOps operations
 
 
-## **Author**
+### **Author**
 
 Name: Alice Oripu
 
@@ -307,7 +307,7 @@ Focus: Cloud & DevOps Engineering
 
 GitHub: https://github.com/Alice-tech-node
 
-**⭐ Project Status**
+**Project Status**
 
 Status: In Progress 
 
