@@ -1,19 +1,10 @@
-## **Kubernetes Operations Platform**
+# **Kubernetes Operations Platform**
 
 # Table of Contents
 
 - [Project Overview](#project-overview)
+- [Cloud Architecture Diagram](#cloud-architecture-diagram)
 - [Architecture Overview](#architecture-overview)
-  - [Cloud Architecture Diagram](#cloud-architecture-diagram)
-  - [Kubernetes Architecture Diagram](#kubernetes-architecture-diagram)
-- [Project Objectives](#project-objectives)
-- [Technology Stack](#technology-stack)
-- [Project Components](#project-components)
-  - [Application Layer](#application-layer)
-  - [Monitoring Layer](#monitoring-layer)
-  - [Logging Layer](#logging-layer)
-  - [GitOps Layer](#gitops-layer)
-  - [Security Layer](#security-layer)
 - [Installation & Setup](#installation--setup)
   - [Phase 1: Cluster Setup](#phase-1--cluster-setup)
   - [Phase 2: Multi-Tier Application Deployment](#phase-2--multi-tier-application-deployment)
@@ -22,23 +13,13 @@
   - [Phase 5: GitOps Layer](#phase-5--gitops-layer)
   - [Phase 6: Security Layer](#phase-6--security-layer)
   - [Phase 7: Final Validation & Integration Testing](#phase-7--final-validation--integration-testing)
-- [Project Structure](#project-structure)
-- [Accessing Services](#accessing-services)
-  - [Grafana](#grafana)
-  - [Prometheus](#prometheus)
-  - [Argo-CD](#argo-cd)
-- [Monitoring and Logging](#monitoring-and-logging)
-- [Security Controls](#security-controls)
-- [GitOps Workflow](#gitops-workflow)
-- [Testing and Validation](#testing-and-validation)
-- [Screenshots](#screenshots)
 - [Challenges and Lessons Learned](#challenges-and-lessons-learned)
 - [Future Improvements](#future-improvements)
 - [Learning Outcomes](#learning-outcomes)
 - [Author](#author)
 
 
-## **🚀 Overview**
+### **Project Overview**
 
 This project is a production-style Kubernetes operations platform that demonstrates real-world DevOps practices including:
 
@@ -52,10 +33,11 @@ This project is a production-style Kubernetes operations platform that demonstra
 
 *. Multi-tier application deployment*
 
-## **Architecture**
+### **Cloud Architecture Diagram**
 <img width="2692" height="2129" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/57c8d77d-c274-4562-a0ed-62ec1ebd4630" />
 
 
+### **Architecture Overview**
 
 It is built using Kubernetes with pre-built container images.
 
@@ -124,7 +106,7 @@ It is built using Kubernetes with pre-built container images.
 *Network Policies for traffic control*
 
 
-## **⚙️ Installation & Setup**
+# **⚙️ Installation & Setup**
 ## **PHASE 1: CLUSTER STEP**
 This phase establishes the Kubernetes environment by deploying and configuring the cluster, installing the required tools, and enabling core services such as Ingress to provide a foundation for hosting and managing applications.
 
@@ -271,18 +253,33 @@ apiVersion: rbac.authorization.k8s.io/v1*
 **4. Network Policies**
 *Restrict traffic between services.*
 
-**Key Features**
+## **PHASE 7: FINAL VALIDATION AND INTERGRATION TESTING**
+This phase verifies that all platform components are functioning together as intended by testing application availability, monitoring, logging, GitOps synchronization, and security controls to ensure a stable and production-ready environment.
 
-✔ Multi-tier microservices architecture
+Run:
+*kubectl get pods*
+*kubectl get svc*
+*kubectl get ingress*
 
-✔ Full observability stack (metrics + logs)
+Confirm:
+ - Apps running
+ - Monitoring active
+ - Logging working
+ - GitOps synced
+ - Security enforced
 
-✔ GitOps automated deployments
+**Challenges and lesson leaned**
+### Challenges
+- Configuring Ingress networking
+- Integrating Grafana with Loki
+- Setting up Argo CD synchronization
+- Managing Kubernetes RBAC permissions
 
-✔ Secure Kubernetes configuration
-
-✔ Scalable workloads
-
+### Lessons Learned
+- Kubernetes resource management
+- Monitoring and observability best practices
+- GitOps deployment workflows
+- Kubernetes security fundamentals
 
 **Learning Outcomes**
 
