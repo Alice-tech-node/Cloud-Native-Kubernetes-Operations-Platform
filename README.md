@@ -1,5 +1,43 @@
 ## **Kubernetes Operations Platform**
 
+# Table of Contents
+
+- [Project Overview](#project-overview)
+- [Architecture Overview](#architecture-overview)
+  - [Cloud Architecture Diagram](#cloud-architecture-diagram)
+  - [Kubernetes Architecture Diagram](#kubernetes-architecture-diagram)
+- [Project Objectives](#project-objectives)
+- [Technology Stack](#technology-stack)
+- [Project Components](#project-components)
+  - [Application Layer](#application-layer)
+  - [Monitoring Layer](#monitoring-layer)
+  - [Logging Layer](#logging-layer)
+  - [GitOps Layer](#gitops-layer)
+  - [Security Layer](#security-layer)
+- [Installation & Setup](#installation--setup)
+  - [Phase 1: Cluster Setup](#phase-1--cluster-setup)
+  - [Phase 2: Multi-Tier Application Deployment](#phase-2--multi-tier-application-deployment)
+  - [Phase 3: Monitoring Layer](#phase-3--monitoring-layer)
+  - [Phase 4: Logging Layer](#phase-4--logging-layer)
+  - [Phase 5: GitOps Layer](#phase-5--gitops-layer)
+  - [Phase 6: Security Layer](#phase-6--security-layer)
+  - [Phase 7: Final Validation & Integration Testing](#phase-7--final-validation--integration-testing)
+- [Project Structure](#project-structure)
+- [Accessing Services](#accessing-services)
+  - [Grafana](#grafana)
+  - [Prometheus](#prometheus)
+  - [Argo-CD](#argo-cd)
+- [Monitoring and Logging](#monitoring-and-logging)
+- [Security Controls](#security-controls)
+- [GitOps Workflow](#gitops-workflow)
+- [Testing and Validation](#testing-and-validation)
+- [Screenshots](#screenshots)
+- [Challenges and Lessons Learned](#challenges-and-lessons-learned)
+- [Future Improvements](#future-improvements)
+- [Learning Outcomes](#learning-outcomes)
+- [Author](#author)
+
+
 ## **🚀 Overview**
 
 This project is a production-style Kubernetes operations platform that demonstrates real-world DevOps practices including:
