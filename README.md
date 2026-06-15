@@ -212,7 +212,9 @@ This phase automates application deployment and configuration management using A
 **5. GitOps Workflow**
 *GitHub → Argo CD → Kubernetes Cluster*
 
+
   ***Any change pushed to GitHub is automatically deployed.***
+  
 
 ## **PHASE 6: SECURITY LAYER**
 This phase strengthens the platform's security posture by implementing Role-Based Access Control (RBAC), Secrets management, and Network Policies to protect sensitive information and control access between users and workloads.
