@@ -84,77 +84,153 @@ It is built using Kubernetes with pre-built container images.
 
 ## **⚙️ Installation & Setup**
 ## **PHASE 1: CLUSTER STEP**
+This phase establishes the Kubernetes environment by deploying and configuring the cluster, installing the required tools, and enabling core services such as Ingress to provide a foundation for hosting and managing applications.
 
-Initialize and configure a Kubernetes cluster that serves as the foundation for the project, providing a reliable environment for deploying, managing, and scaling containerized applications and infrastructure services.
-
-**Prerequisites**
+**1. Install Tools**
 
 Install:
 
-*Minikube*
+*Minikube* , *kubectl* , *Helm*
 
-*kubectl*
+Start Kubernetes cluster: *minikube start*
 
-*Helm*
+Verify cluster: *kubectl get nodes*
 
-Start cluster:
+**2. Enable Ingress Controller**
 
-*minikube start*
+Enable: *minikube addons enable ingress*
 
-## **PHASE 2: MULTI-TIER APPLICATION (Core Workload)**
+Confirm: *kubectl get pods -n ingress-nginx*
 
-Deploy a multi-tier application consisting of frontend, backend, and database components to demonstrate Kubernetes workload management, service communication, scaling, and application availability
+##**PHASE 2: MULTI-TIER APPLICATION DEPLOYMENT**
 
-**Install Ingress Controller**
+This phase deploys the core application components, including the frontend, database, and cache layers, demonstrating how multiple services communicate and operate together within a Kubernetes cluster.
 
-*. minikube addons enable ingress*
+**1. Deploy NGINX Frontend** 
 
-**Deploy Monitoring Stack**
+*kubectl create deployment nginx --image=nginx*
+*kubectl expose deployment nginx --port=80*
 
-*. helm repo add prometheus-community https://prometheus-community.github.io/helm-charts*
+**2. Deploy PostgreSQL Database**
 
-*. helm install monitoring prometheus-community/kube-prometheus-stack*
+*helm repo add bitnami https://charts.bitnami.com/bitnami*
+*helm install postgres bitnami/postgresql*
 
-**Deploy Logging Stack**
+**3. Deploy Redis Cache**
 
-*. helm repo add grafana https://grafana.github.io/helm-charts*
+*helm install redis bitnami/redis*
 
-*. helm install loki grafana/loki-stack*
+**4. Configure Ingress Routing**
 
-**Deploy Applications**
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+spec:
+  rules:
+  - host: app.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx
+            port:
+              number: 80
 
-*. kubectl create deployment nginx --image=nginx*
+Apply:
 
- *. kubectl expose deployment nginx --port=80*
+kubectl apply -f ingress.yaml
 
-**Install Argo CD**
+📊 Phase 3: Monitoring Layer
 
-*. kubectl create namespace argocd*
+This phase adds cluster observability.
 
-*. kubectl apply -n argocd \-f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml*
+1. Install Prometheus + Grafana
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
 
-## **PHASE 3: MONITORING LATER**
+helm install monitoring prometheus-community/kube-prometheus-stack
+2. Access Grafana
+kubectl port-forward svc/monitoring-grafana 3000:80
 
-Implement a monitoring solution to provide real-time visibility into cluster health, resource utilization, application performance, and system availability.
+Login:
 
-**Grafana**
+Username: admin
+Password:
+kubectl get secret monitoring-grafana \
+-o jsonpath="{.data.admin-password}" | base64 -d
+3. Monitor Metrics
 
-*kubectl port-forward svc/monitoring-grafana 3000:80*
+You will monitor:
 
-**Argo CD**
+CPU usage
+Memory usage
+Pod health
+Node performance
+NGINX traffic
+📜 Phase 4: Logging Layer
 
-*kubectl port-forward svc/argocd-server -n argocd 8080:443*
+This phase centralizes logs across the cluster.
 
-**Security Features**
+1. Install Loki Stack
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
 
-. Namespace isolation
+helm install loki grafana/loki-stack
+2. Connect Loki to Grafana
 
-. RBAC policies
+Inside Grafana:
 
-. Secrets management
+Settings → Data Sources → Add Loki
+3. View Logs
 
-. Network traffic restrictions
+Example:
 
+kubectl logs deployment/nginx
+
+Logs will appear in Grafana.
+
+🚀 Phase 5: GitOps (Argo CD)
+
+This phase automates deployments from Git.
+
+1. Install Argo CD
+kubectl create namespace argocd
+
+kubectl apply -n argocd \
+-f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+2. Access Argo CD UI
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+Open:
+
+https://localhost:8080
+3. Get Admin Password
+kubectl -n argocd get secret argocd-initial-admin-secret \
+-o jsonpath="{.data.password}" | base64 -d
+4. Connect Git Repository
+Add your GitHub repo
+Store Kubernetes manifests
+Enable Auto Sync
+5. GitOps Workflow
+GitHub → Argo CD → Kubernetes Cluster
+
+Any change pushed to GitHub is automatically deployed.
+
+🔐 Phase 6: Security Layer
+1. Create Namespace
+kubectl create namespace secure-app
+2. RBAC Setup
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+3. Create Secrets
+kubectl create secret generic app-secret \
+--from-literal=password=SecurePass123
+4. Network Policies
+
+Restrict traffic between services.
 **Key Features**
 
 ✔ Multi-tier microservices architecture
