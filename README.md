@@ -213,7 +213,7 @@ This phase automates application deployment and configuration management using A
 *GitHub → Argo CD → Kubernetes Cluster*
 
 
-  #### ***Any change pushed to GitHub is automatically deployed.***
+  ### ***Any change pushed to GitHub is automatically deployed.***
   
 
 ## **PHASE 6: SECURITY LAYER**
