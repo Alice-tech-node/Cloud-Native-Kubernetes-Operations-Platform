@@ -22,6 +22,7 @@
 ### **Project Overview**
 
 The Kubernetes Operations Platform is a comprehensive, production-style project designed to demonstrate the core technologies and practices used in modern cloud-native environments. The project combines application deployment, monitoring, centralized logging, security controls, and GitOps automation into a single Kubernetes-based platform.
+The platform is built around a multi-tier architecture consisting of a frontend application, a PostgreSQL database, and a Redis caching layer, all running within a Kubernetes cluster. To ensure visibility into the health and performance of the environment, Prometheus and Grafana are deployed to collect and visualize metrics from cluster resources and workloads. Centralized logging is implemented using Loki, enabling efficient log aggregation, analysis, and troubleshooting across the platform.
 
 *. Monitoring and observability*
 
