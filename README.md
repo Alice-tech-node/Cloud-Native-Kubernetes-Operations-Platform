@@ -50,7 +50,7 @@ It is built using Kubernetes with pre-built container images.
 
 **Metrics include:**
 
-**CPU usage**
+*. CPU usage**
 
 *. Memory usage*
 
@@ -102,7 +102,7 @@ Enable: *minikube addons enable ingress*
 
 Confirm: *kubectl get pods -n ingress-nginx*
 
-##**PHASE 2: MULTI-TIER APPLICATION DEPLOYMENT**
+## **PHASE 2: MULTI-TIER APPLICATION DEPLOYMENT**
 
 This phase deploys the core application components, including the frontend, database, and cache layers, demonstrating how multiple services communicate and operate together within a Kubernetes cluster.
 
@@ -139,98 +139,94 @@ spec:
             port:
               number: 80
 
-Apply:
+Apply: kubectl apply -f ingress.yaml
 
-kubectl apply -f ingress.yaml
+## **PHASE 3: MONITORING LAYER**
 
-📊 Phase 3: Monitoring Layer
+This phase introduces observability by deploying Prometheus and Grafana to collect, store, and visualize cluster and application metrics, enabling proactive monitoring of system health and performance.
 
-This phase adds cluster observability.
+**1. Install Prometheus + Grafana**
 
-1. Install Prometheus + Grafana
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
+*helm repo add prometheus-community https://prometheus-community.github.io/helm-charts*
+*helm repo update*
+*helm install monitoring prometheus-community/kube-prometheus-stack*
 
-helm install monitoring prometheus-community/kube-prometheus-stack
-2. Access Grafana
-kubectl port-forward svc/monitoring-grafana 3000:80
+**2. Access Grafana**
 
-Login:
+*kubectl port-forward svc/monitoring-grafana 3000:80*
 
-Username: admin
-Password:
-kubectl get secret monitoring-grafana \
--o jsonpath="{.data.admin-password}" | base64 -d
-3. Monitor Metrics
+*Login: Username & Password*
+*kubectl get secret monitoring-grafana \
+-o jsonpath="{.data.username-password}" | base64 -d*
+
+**3. Monitor Metrics**
 
 You will monitor:
+*CPU usage*
+*Memory usage*
+*Pod health*
+*Node performance*
+*NGINX traffic*
 
-CPU usage
-Memory usage
-Pod health
-Node performance
-NGINX traffic
-📜 Phase 4: Logging Layer
+## **PHASE 4: LOGGING LAYER**
+This phase implements centralized logging using Loki, allowing logs from applications and Kubernetes resources to be aggregated, searched, and analyzed from a single location for easier troubleshooting and auditing.
 
-This phase centralizes logs across the cluster.
+**1. Install Loki Stack**
+*helm repo add grafana https://grafana.github.io/helm-charts*
+*helm repo update*
+*helm install loki grafana/loki-stack*
 
-1. Install Loki Stack
-helm repo add grafana https://grafana.github.io/helm-charts
-helm repo update
+**2. Connect Loki to Grafana**
+*Inside Grafana: Settings → Data Sources → Add Loki*
 
-helm install loki grafana/loki-stack
-2. Connect Loki to Grafana
-
-Inside Grafana:
-
-Settings → Data Sources → Add Loki
-3. View Logs
-
-Example:
-
-kubectl logs deployment/nginx
+**3. View Logs**
+*kubectl logs deployment/nginx*
 
 Logs will appear in Grafana.
 
-🚀 Phase 5: GitOps (Argo CD)
+## **PHASE 5: GitOps (ARGO CD)
+This phase automates application deployment and configuration management using Argo CD, ensuring that the Kubernetes environment continuously synchronizes with the desired state defined in a Git repository
 
-This phase automates deployments from Git.
+**1. Install Argo CD**
+*kubectl create namespace argocd*
+*kubectl apply -n argocd \
+-f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml*
 
-1. Install Argo CD
-kubectl create namespace argocd
+**2. Access Argo CD UI**
+*kubectl port-forward svc/argocd-server -n argocd 8080:443*
+*Open: https://localhost:8080*
 
-kubectl apply -n argocd \
--f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-2. Access Argo CD UI
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+**3. Get Admin Password**
+*kubectl -n argocd get secret argocd-initial-admin-secret \
+-o jsonpath="{.data.password}" | base64 -d*
 
-Open:
+**4. Connect Git Repository**
+*Add your GitHub repo*
+*Store Kubernetes manifests*
+*Enable Auto Sync*
 
-https://localhost:8080
-3. Get Admin Password
-kubectl -n argocd get secret argocd-initial-admin-secret \
--o jsonpath="{.data.password}" | base64 -d
-4. Connect Git Repository
-Add your GitHub repo
-Store Kubernetes manifests
-Enable Auto Sync
-5. GitOps Workflow
-GitHub → Argo CD → Kubernetes Cluster
+**5. GitOps Workflow**
+*GitHub → Argo CD → Kubernetes Cluster*
 
-Any change pushed to GitHub is automatically deployed.
+# *Any change pushed to GitHub is automatically deployed.*
 
-🔐 Phase 6: Security Layer
-1. Create Namespace
-kubectl create namespace secure-app
-2. RBAC Setup
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1
-3. Create Secrets
-kubectl create secret generic app-secret \
---from-literal=password=SecurePass123
-4. Network Policies
+## **PHASE 6: SECURITY LAYER**
+This phase strengthens the platform's security posture by implementing Role-Based Access Control (RBAC), Secrets management, and Network Policies to protect sensitive information and control access between users and workloads.
 
-Restrict traffic between services.
+**1. Create Namespace**
+*kubectl create namespace secure-app*
+
+**2. RBAC Setup**
+*kind: Role
+apiVersion: rbac.authorization.k8s.io/v1*
+
+**3. Create Secrets**
+*kubectl create secret generic app-secret \
+--from-literal=password=SecurePass123*
+
+**4. Network Policies**
+*Restrict traffic between services.*
+
 **Key Features**
 
 ✔ Multi-tier microservices architecture
@@ -246,7 +242,7 @@ Restrict traffic between services.
 
 **Learning Outcomes**
 
-After completing this project, you will understand:
+After completing this project, I understood:
 
 . Kubernetes architecture
 
