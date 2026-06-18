@@ -186,6 +186,8 @@ You will monitor:
 *Node performance*
 *NGINX traffic*
 
+*I successfully completed Phase 3 by introducing a robust observability and monitoring layer to the Kubernetes cluster. By leveraging modern Helm OCI (Open Container Iniative) registries, I deployed the full Prometheus and Grafana metrics collection suite. I then used secure script commands to extract and decode the auto-generated administrative credentials directly from the cluster’s secrets. Finally, I established a live connection using a port-forward bridge to access the web browser interface at port 3000, logging directly into the Grafana Dashboard directory to monitor the cluster's overall health, pods, and compute resources.*
+
 ## **Phase 4: Logging Layer**
 This phase implements centralized logging using Loki, allowing logs from applications and Kubernetes resources to be aggregated, searched, and analyzed from a single location for easier troubleshooting and auditing.
 
