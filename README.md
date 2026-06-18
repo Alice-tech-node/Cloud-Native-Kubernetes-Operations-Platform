@@ -157,7 +157,7 @@ spec:
 
 Apply: kubectl apply -f ingress.yaml
 
-*I began by deploying an NGINX frontend and exposing its service on port 80, followed by setting up the storage layers, seamlessly installing the Bitnami PostgreSQL database and Redis cache via Helm. Finally, I generated a cleanly configuration file to deploy our Ingress routing, successfully mapping the (app.local) host to our frontend. Your entire multi-tier architecture is now running, connected, and completely deployed within your Kubernetes cluster!*
+*I began by deploying an NGINX frontend and exposing its service on port 80, followed by setting up the storage layers, seamlessly installing the Bitnami, PostgreSQL database, and Redis cache via Helm. Finally, I generated a configuration file to deploy our Ingress routing, successfully mapping the (app.local) host to our frontend. Your entire multi-tier architecture is now running, connected, and completely deployed within your Kubernetes cluster!*
 
 ## **Phase 3: Monitoring Layer**
 
