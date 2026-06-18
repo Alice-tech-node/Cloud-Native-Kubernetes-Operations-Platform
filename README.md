@@ -130,12 +130,11 @@ This phase deploys the core application components, including the frontend, data
 
 **2. Deploy PostgreSQL Database**
 
-*helm repo add bitnami https://charts.bitnami.com/bitnami*
-*helm install postgres bitnami/postgresql*
+*helm install postgres oci://registry-1.docker.io/bitnamicharts/postgresql*
 
 **3. Deploy Redis Cache**
 
-*helm install redis bitnami/redis*
+*helm install redis oci://registry-1.docker.io/bitnamicharts/redis*
 
 **4. Configure Ingress Routing**
 
