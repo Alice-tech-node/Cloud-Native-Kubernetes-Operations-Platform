@@ -119,7 +119,6 @@ Verify cluster: *kubectl get nodes*
 Enable: *minikube addons enable ingress*
 
 Confirm: *kubectl get pods -n ingress-nginx*
-<img width="825" height="147" alt="Nginx Frontend-Deploy" src="https://github.com/user-attachments/assets/4722f9d1-2ea8-4baa-9a45-99c13be636d4" />
 <img width="1083" height="272" alt="Enable ingress" src="https://github.com/user-attachments/assets/08a9be41-d223-4b51-b14c-559ccb9c585f" />
 
 ## **Phase 2: Multi-Tier Application Deployment**
