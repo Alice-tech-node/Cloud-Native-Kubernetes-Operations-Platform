@@ -129,7 +129,6 @@ This phase deploys the core application components, including the frontend, data
 
 *kubectl create deployment nginx --image=nginx*
 *kubectl expose deployment nginx --port=80*
-<img width="825" height="147" alt="Nginx Frontend-Deploy" src="https://github.com/user-attachments/assets/9a1b6986-445e-4053-89b9-dd7afe2844eb" />
 <img width="1066" height="306" alt="Loki stack -install" src="https://github.com/user-attachments/assets/a1bc2146-ff92-4847-a201-aa1ecafd19bf" />
 
 **2. Deploy PostgreSQL Database**
@@ -220,6 +219,8 @@ This phase implements centralized logging using Loki, allowing logs from applica
 Logs will appear in Grafana.
 <img width="1503" height="900" alt="View logs" src="https://github.com/user-attachments/assets/710d9123-25ac-4f41-808b-329acb0fe141" />
 
+*I deployed the Prometheus, Grafana, and Loki monitoring and logging stacks to gather platform telemetry, and subsequently optimized the cluster's resource footprints to drop host machine CPU usage.*
+
 ## **Phase 5: GitOps Layer**
 This phase automates application deployment and configuration management using Argo CD, ensuring that the Kubernetes environment continuously synchronizes with the desired state defined in a Git repository
 
@@ -250,7 +251,7 @@ This phase automates application deployment and configuration management using A
 <img width="1118" height="796" alt="gitops workflow" src="https://github.com/user-attachments/assets/18f6ffe3-8f31-433d-a60d-c43e3d4ca201" />
 
   ### ***Any change pushed to GitHub is automatically deployed.***
-  
+*I configured an automated GitOps delivery pipeline by deploying Argo CD, opening a local port-forward network tunnel, and successfully syncing the web application manifests directly from GitHub repository.*
 
 ## **Phase 6: Security Layer**
 This phase strengthens the platform's security posture by implementing Role-Based Access Control (RBAC), Secrets management, and Network Policies to protect sensitive information and control access between users and workloads.
@@ -274,6 +275,8 @@ apiVersion: rbac.authorization.k8s.io/v1*
 <img width="948" height="320" alt="network traffic" src="https://github.com/user-attachments/assets/a3f2bcb7-04ea-47f9-8867-d4b83ad5aeed" />
 <img width="857" height="221" alt="verify" src="https://github.com/user-attachments/assets/19d85364-6bf0-42d0-9a99-e3d42b7b20ea" />
 
+*I established a robust zero-trust security architecture by building an isolated namespace, creating a restricted developer RBAC profile, injecting secure passwords, and applying a default-deny ingress network firewall.*
+
 ## **Phase 7: Final Validation & Integration Testing**
 This phase verifies that all platform components are functioning together as intended by testing application availability, monitoring, logging, GitOps synchronization, and security controls to ensure a stable and production-ready environment.
 
@@ -290,18 +293,33 @@ Confirm:
  - Security enforced
 <img width="1655" height="937" alt="Validation and testing" src="https://github.com/user-attachments/assets/69a989fa-e77b-4aff-a696-39e183bf7ebb" />
 
-### **Challenges and lessons learned**
-**Challenges**
-- Configuring Ingress networking
-- Integrating Grafana with Loki
-- Setting up Argo CD synchronization
-- Managing Kubernetes RBAC permissions
+*I executed comprehensive system-wide diagnostic commands to audit all running workloads, verify live monitoring/logging tools, confirm automated GitOps synchronization, and validate that all security layers were actively enforced.*
 
+### **Challenges Faced**
+
+- Conflict from Automated Background Scanners: The automated "sidecar" containers in the Helm chart were causing configuration clashes and redundant setups. I solved this by performing a full system purge and then reinstalling the stack while explicitly disabling these automated scanners.
+
+- Service Connectivity Issues: Grafana struggled to resolve internal service addresses for Loki and Prometheus. I solved this by bypassing the default DNS and using explicit, fully-qualified service URLs to establish a reliable network path.
+
+- Authentication Rejections (Multi-tenancy): Loki blocked connection attempts because it required a tenant identity header. I solved this by manually adding the X-Scope-OrgID custom HTTP header into the Grafana data source configuration.
+
+- Persistent Configuration Loops: Old settings and cache files hindered our ability to reach a stable state. I solved this by performing a "nuclear" reset, which included deleting the Minikube virtual machine, clearing all persistent volumes, and wiping the local Kubernetes configuration to ensure a completely clean slate.
+  
+- High CPU & Cluster Deadlock: I stopped the resource-heavy monitoring and logging stacks by scaling their replicas to zero, which instantly dropped your computer's CPU from a staggering 84% and allowed core system components to recover.
+
+- Stuck "Terminating" and "Pending" Pods: To clear the zombie processes and locked network ports that kept rolling updates frozen, I performed a complete hard restart of your PC to flush the RAM and reset the environment.
+
+- Post-Reboot Connection Refusal: When minikube start was refused because the background engine wasn't awake yet, I manually launched Docker Desktop from Windows Start Menu and waited for the whale icon to turn solid green before running commands.
+
+- Broken Portal Access to Argo CD: To fix the network drops and browser errors that occurred whenever an Argo CD server pod restarted, I re-established a dedicated connection bridge using a clean kubectl port-forward command in an open terminal window.
+- 
 **Lessons Learned**
-- Kubernetes resource management
-- Monitoring and observability best practices
-- GitOps deployment workflows
-- Kubernetes security fundamentals
+- When troubleshooting fails, a fresh start is often the fastest path to success.
+- Relying on default internal DNS resolution can be unreliable. Specifying exact, fully-qualified service URLs creates a much more stable and predictable connection between services.
+- Loki have built-in security requirements (such as multi-tenancy) that will reject connections if the expected headers are missing, even if the network path is otherwise open.
+- Containers are convenient for configuration, they can cause significant issues when they override manual, deliberate settings. Learning to disable these features (using Helm flags) allows us to take full control of the environment.
+- When file systems and network ports get completely deadlocked under heavy stress, a full host machine reboot is the most efficient way to clear frozen processes.
+- 
 
 #### **Learning Outcomes**
 
@@ -309,15 +327,21 @@ After completing this project, I understood:
 
 . Kubernetes architecture
 
-. Production monitoring systems
+. Mastering the "Nuclear" Reset
 
-. Logging and observability
+. Controlling Automated Infrastructure
+
+. Cluster Verification & Auditing
 
 . GitOps workflows
 
 . Cloud-native security
 
 . Real-world DevOps operations
+
+. Understanding Security Requirements
+
+. Resilient Infrastructure Recovery
 
 
 ### **Author**
@@ -330,6 +354,6 @@ GitHub: https://github.com/Alice-tech-node
 
 **Project Status**
 
-Status: In Progress 
+Status: Completed
 
 Environment: Local (Minikube) / Cloud-ready
