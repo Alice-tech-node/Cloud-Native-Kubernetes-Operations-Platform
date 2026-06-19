@@ -129,20 +129,14 @@ This phase deploys the core application components, including the frontend, data
 
 *kubectl create deployment nginx --image=nginx*
 *kubectl expose deployment nginx --port=80*
-<img width="825" height="147" alt="Nginx Frontend-Deploy" src="https://github.com/user-attachments/assets/40de6757-31a9-4b13-b236-e8e8eee031c0" />
-
 
 **2. Deploy PostgreSQL Database**
 
 *helm install postgres oci://registry-1.docker.io/bitnamicharts/postgresql*
-<img width="938" height="293" alt="PostgresSQL -Deploy" src="https://github.com/user-attachments/assets/a0479a9d-bf37-40d4-bd94-2fb29ac14fb7" />
-
 
 **3. Deploy Redis Cache**
 
 *helm install redis oci://registry-1.docker.io/bitnamicharts/redis*
-<img width="1076" height="295" alt="Redis-Deploy" src="https://github.com/user-attachments/assets/62ec0f43-1d0e-4b22-b7b5-7582b9b55e8d" />
-
 
 **4. Configure Ingress Routing**
 
@@ -165,8 +159,6 @@ spec:
 
 Apply: kubectl apply -f ingress.yaml
 
-<img width="1082" height="407" alt="Ingress Routing" src="https://github.com/user-attachments/assets/6a21e374-9fd1-4cd8-aeba-864f0cd7df79" />
-
 
 *I began by deploying an NGINX frontend and exposing its service on port 80, followed by setting up the storage layers, seamlessly installing the Bitnami, PostgreSQL database, and Redis cache via Helm. Finally, I generated a configuration file to deploy our Ingress routing, successfully mapping the (app.local) host to our frontend. Your entire multi-tier architecture is now running, connected, and completely deployed within your Kubernetes cluster!*
 
@@ -179,8 +171,6 @@ This phase introduces observability by deploying Prometheus and Grafana to colle
 *helm repo add prometheus-community https://prometheus-community.github.io/helm-charts*
 *helm repo update*
 *helm install monitoring prometheus-community/kube-prometheus-stack*
-<img width="1082" height="357" alt="Prometheus and Grafana stack --Install" src="https://github.com/user-attachments/assets/6a59be0e-2aed-4bd4-bd09-eb30f919b589" />
-
 
 **2. Access Grafana**
 
@@ -189,8 +179,6 @@ This phase introduces observability by deploying Prometheus and Grafana to colle
 *Login: Username & Password*
 *kubectl get secret monitoring-grafana \
 -o jsonpath="{.data.username-password}" | base64 -d*
-<img width="1267" height="113" alt="Grafana" src="https://github.com/user-attachments/assets/02572ae6-1804-4287-9450-3aa6d8c42a00" />
-
 
 **3. Monitor Metrics**
 
@@ -200,7 +188,6 @@ You will monitor:
 *Pod health*
 *Node performance*
 *NGINX traffic*
-<img width="1500" height="902" alt="Grafana monitor metric" src="https://github.com/user-attachments/assets/940a0da4-6793-46a1-a78a-fd498b2b913c" />
 
 
 *I successfully completed Phase 3 by introducing a robust observability and monitoring layer to the Kubernetes cluster. By leveraging modern Helm OCI (Open Container Iniative) registries, I deployed the full Prometheus and Grafana metrics collection suite. I then used secure script commands to extract and decode the auto-generated administrative credentials directly from the cluster’s secrets. Finally, I established a live connection using a port-forward bridge to access the web browser interface at port 3000, logging directly into the Grafana Dashboard directory to monitor the cluster's overall health, pods, and compute resources.*
@@ -212,13 +199,9 @@ This phase implements centralized logging using Loki, allowing logs from applica
 *helm repo add grafana https://grafana.github.io/helm-charts*
 *helm repo update*
 *helm install loki grafana/loki-stack*
-<img width="1066" height="306" alt="Loki stack -install" src="https://github.com/user-attachments/assets/c55c9bd9-e4bb-407d-919e-7435cd10f7cb" />
-
 
 **2. Connect Loki to Grafana**
 *Inside Grafana: Settings → Data Sources → Add Loki*
-<img width="1796" height="792" alt="Connect Loki" src="https://github.com/user-attachments/assets/7ee8afa8-16d4-4ff9-80a3-15a0eef047b5" />
-
 
 **3. View Logs**
 *kubectl logs deployment/nginx*
