@@ -212,9 +212,13 @@ This phase implements centralized logging using Loki, allowing logs from applica
 *helm repo add grafana https://grafana.github.io/helm-charts*
 *helm repo update*
 *helm install loki grafana/loki-stack*
+<img width="1066" height="306" alt="Loki stack -install" src="https://github.com/user-attachments/assets/c55c9bd9-e4bb-407d-919e-7435cd10f7cb" />
+
 
 **2. Connect Loki to Grafana**
 *Inside Grafana: Settings → Data Sources → Add Loki*
+<img width="1796" height="792" alt="Connect Loki" src="https://github.com/user-attachments/assets/7ee8afa8-16d4-4ff9-80a3-15a0eef047b5" />
+
 
 **3. View Logs**
 *kubectl logs deployment/nginx*
