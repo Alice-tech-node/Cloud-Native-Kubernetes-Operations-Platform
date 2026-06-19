@@ -129,7 +129,8 @@ This phase deploys the core application components, including the frontend, data
 
 *kubectl create deployment nginx --image=nginx*
 *kubectl expose deployment nginx --port=80*
-<img width="1066" height="306" alt="Loki stack -install" src="https://github.com/user-attachments/assets/a1bc2146-ff92-4847-a201-aa1ecafd19bf" />
+<img width="825" height="147" alt="Nginx Frontend-Deploy" src="https://github.com/user-attachments/assets/20f3fa11-1945-4855-b6ca-a58b02ef2bad" />
+
 
 **2. Deploy PostgreSQL Database**
 
