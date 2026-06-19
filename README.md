@@ -313,14 +313,14 @@ Confirm:
 - Post-Reboot Connection Refusal: When minikube start was refused because the background engine wasn't awake yet, I manually launched Docker Desktop from Windows Start Menu and waited for the whale icon to turn solid green before running commands.
 
 - Broken Portal Access to Argo CD: To fix the network drops and browser errors that occurred whenever an Argo CD server pod restarted, I re-established a dedicated connection bridge using a clean kubectl port-forward command in an open terminal window.
-- 
+  
 **Lessons Learned**
 - When troubleshooting fails, a fresh start is often the fastest path to success.
 - Relying on default internal DNS resolution can be unreliable. Specifying exact, fully-qualified service URLs creates a much more stable and predictable connection between services.
 - Loki have built-in security requirements (such as multi-tenancy) that will reject connections if the expected headers are missing, even if the network path is otherwise open.
 - Containers are convenient for configuration, they can cause significant issues when they override manual, deliberate settings. Learning to disable these features (using Helm flags) allows us to take full control of the environment.
 - When file systems and network ports get completely deadlocked under heavy stress, a full host machine reboot is the most efficient way to clear frozen processes.
-- 
+  
 
 #### **Learning Outcomes**
 
