@@ -165,7 +165,6 @@ spec:
 
 Apply: kubectl apply -f ingress.yaml
 
-<img width="1082" height="357" alt="Prometheus and Grafana stack --Install" src="https://github.com/user-attachments/assets/6fc10a0d-b5f9-4f85-aaa7-d2215f90da9b" />
 <img width="1082" height="407" alt="Ingress Routing" src="https://github.com/user-attachments/assets/6a21e374-9fd1-4cd8-aeba-864f0cd7df79" />
 
 
