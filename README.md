@@ -161,7 +161,7 @@ spec:
             port:
               number: 80
 
-Apply: kubectl apply -f ingress.yaml<img width="1500" height="902" alt="Grafana monitor metric" src="https://github.com/user-attachments/assets/88366c33-2c97-41d6-8078-509412fcf13f" />
+Apply: kubectl apply -f ingress.yaml
 
 <img width="1082" height="407" alt="Ingress Routing" src="https://github.com/user-attachments/assets/fc619791-98f0-4bc3-b714-bdcc39394aee" />
 
